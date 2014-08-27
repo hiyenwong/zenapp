@@ -1,0 +1,23 @@
+<h1>家庭成员体重图</h1>
+<div id="weight_charts"></div>
+
+<%= javascript_include_tag 'highstock','highcharts-more'%>
+<%= javascript_include_tag 'modules/exporting'%>
+<script type="text/javascript">
+  $(function(){
+    $("#weight_charts").highcharts('StockChart',{
+      chart:{},
+      title:{},
+      series:[
+        <% @data.each do |data| %>
+        {
+        name:"<%= data.chinesename %>",
+        data:([<% data.weight_records.order('test_datetime ASC').each do |wr_data| %>[<%= wr_data.test_datetime.to_datetime.to_i*1000%>, <%=wr_data.weight %>],<% end %>]),
+        },
+        <% end %>
+      ]
+    });
+  })
+</script>
+
+

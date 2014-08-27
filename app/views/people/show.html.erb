@@ -1,0 +1,54 @@
+  <script>
+  $(function() {
+    $( "#chart_tabs" ).tabs();
+  });
+  </script>
+
+<h4>个人信息</h4>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chinese Name</strong>
+  <%= @person.chinesename %>
+</p>
+<p>
+	<strong>English Name</strong>
+	<%= @person.englishname %>
+</p>
+<p>
+  <strong>Birthday:</strong>
+  <%= @person.birthday %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @person.gender %>
+</p>
+
+<p>
+	<strong>Status:</strong>
+	<%= @person.status %>
+</p>
+<p><%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %></p>
+
+<div id='chart_tabs'>
+  <ul>
+    <li><a href="#weight_chart_tab">体重图</a></li>
+    <li><a href="#bp_chart_tab">血压图</a></li>
+  </ul>
+  <div id="weight_chart_tab"><h4>该成员的体重趋势图</h4><div id="pw_chart"></div></div>
+  <div id="bp_chart_tab"><div id="bp_chart"></div></div>
+</div>
+
+
+
+
+
+
+
+<%= javascript_include_tag 'highstock','highcharts-more'%>
+<%= javascript_include_tag 'modules/exporting'%>
+<%= include_gon %>
+<%= javascript_include_tag 'people' %>
+

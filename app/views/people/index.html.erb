@@ -1,0 +1,35 @@
+<h1>家庭成员列表</h1>
+<%= link_to '添加新成员', new_person_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Chinese Name</th>
+      <th>English Name</th>
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.chinesename %></td>
+        <td><%= person.englishname %></td>
+        <td><%= person.birthday %></td>
+        <td><%= person.gender %></td>
+        <td><%= person.status %></td>
+        <td data-no-turbolink><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

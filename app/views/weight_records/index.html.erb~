@@ -1,0 +1,34 @@
+<h1>家庭成员体重记录表</h1>
+<%= link_to 'New Weight record', new_weight_record_path %>
+<table>
+  <thead>
+    <tr>
+      <th>人员</th>
+      <th>测量日期</th>
+      <th>体重</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weight_records.each do |weight_record| %>
+      <tr>
+        <!-- <td><%= weight_record.person_id %></td> -->
+        <td><%= weight_record.person["chinesename"] %></td>
+        <td><%= weight_record.test_datetime %></td>
+        <td><%= weight_record.weight %> <strong>KG</strong> </td>
+        <td><%= link_to 'Show', weight_record %></td>
+        <td><%= link_to 'Edit', edit_weight_record_path(weight_record) %></td>
+        <td><%= link_to 'Destroy', weight_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= page_entries_info @posts %>
+
+<%= will_paginate @posts, :previous_label => '上一页', :next_label => '下一页', :container => false %>
+
+
+

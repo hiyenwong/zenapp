@@ -1,0 +1,37 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chinesename,'Chinese Name' %><br>
+    <%= f.text_field :chinesename %>
+  </div>
+    <div class="field">
+    <%= f.label :englishname, 'English Name'%><br>
+    <%= f.text_field :englishname %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday,'Birth Day' %><br>
+    <%= f.date_select :birthday,start_year:1919%>
+  </div>
+  <div class="field">
+    <%= f.label :gender, 'Gender'%><br>
+    <%= f.select(:gender,[['Male','M'],['Female','F']]) %>
+  </div>
+  <div class="field">
+    <%= f.label :status, 'Status'%> </br>
+    <%= f.check_box :status %> alive
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

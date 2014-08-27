@@ -1,0 +1,2 @@
+module HeathChartsHelper
+end

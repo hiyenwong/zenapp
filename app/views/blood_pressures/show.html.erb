@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>BP Date:</strong>
+
+<%= @blood_pressure.bp_date %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @blood_pressure.person_id %>
+</p>
+
+<p>
+  <strong>Psys:</strong>
+  <%= @blood_pressure.psys %>
+</p>
+
+<p>
+  <strong>Pdias:</strong>
+  <%= @blood_pressure.pdias %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_blood_pressure_path(@blood_pressure) %> |
+<%= link_to 'Back', blood_pressures_path %>

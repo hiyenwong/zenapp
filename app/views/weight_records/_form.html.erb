@@ -1,0 +1,57 @@
+<div class="small-1 large-12 columuns">
+ <%= form_for(@weight_record) do |f| %>
+  <% if @weight_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weight_record.errors.count, "error") %> prohibited this weight_record from being saved:</h2>
+
+      <ul>
+      <% @weight_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  </div>
+  <div class="field">
+    <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns"><%= f.label :person_id,"所属家庭成员:",:class=>"inline right"%></div>
+        <div class="small-9 columns"><%= f.select(:person_id,Person.all.map {|person| [person.chinesename, person.id]}) %></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- 测试日期 -->
+  <div class="field">
+    <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns"><%= f.label :test_datetime,"称重日期:",:class => "inline right" %></div>
+        <div class="small-9 columns"><%= f.date_field :test_datetime %></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--体重值  -->
+  <div class="field">
+    <div class="row">
+      <div class='small-8'>
+        <div class="row">
+          <div class="small-3 columns"><%= f.label :weight, "体重(单位KG):", :class => "inline right" %></div>
+          <div class="small-9 columns"><%= f.number_field :weight, :step=>0.5%></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %> <!-- form_for ending -->
+
+</div>

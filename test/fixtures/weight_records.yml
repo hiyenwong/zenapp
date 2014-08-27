@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  test_datetime: 2014-03-30 00:00:14
+  weight: 1
+
+two:
+  person_id: 1
+  test_datetime: 2014-03-30 00:00:14
+  weight: 1

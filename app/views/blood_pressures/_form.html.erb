@@ -1,0 +1,33 @@
+<%= form_for(@blood_pressure) do |f| %>
+  <% if @blood_pressure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blood_pressure.errors.count, "error") %> prohibited this blood_pressure from being saved:</h2>
+
+      <ul>
+      <% @blood_pressure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :person_id %><br>
+    <%= f.select(:person_id,Person.all.map {|person| [person.chinesename, person.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :psys %><br>
+    <%= f.number_field :psys %>
+  </div>
+  <div class="field">
+    <%= f.label :pdias %><br>
+    <%= f.number_field :pdias %>
+  </div>
+  <div class="field">
+    <%= f.label :bp_date %></br>
+    <%= f.datetime_select :bp_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+   <%= @weight_record.person["chinesename"] %>
+</p>
+
+<p>
+  <strong>Test datetime:</strong>
+  <%= @weight_record.test_datetime %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @weight_record.weight %> <strong>KG</strong>
+</p>
+
+<%= link_to 'Edit', edit_weight_record_path(@weight_record) %> |
+<%= link_to 'Back', weight_records_path %>

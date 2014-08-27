@@ -1,0 +1,35 @@
+<h1>Listing blood_pressures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>BP_Date</th>
+      <th>Person</th>
+      <th>Pssy</th>
+      <th>Pdias</th>
+      <th>Map</th>
+      <th>Ppulse</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blood_pressures.each do |blood_pressure| %>
+      <tr>
+        <td><%= blood_pressure.bp_date %></td>
+        <td><%= blood_pressure.person['chinesename'] %></td>
+        <td><%= blood_pressure.psys %></td>
+        <td><%= blood_pressure.pdias %></td>
+        <td><%= map(blood_pressure.psys,blood_pressure.pdias) %></td>
+        <td><%= ppulse(blood_pressure.psys,blood_pressure.pdias)%></td>
+        <td><%= link_to 'Show', blood_pressure %></td>
+        <td><%= link_to 'Edit', edit_blood_pressure_path(blood_pressure) %></td>
+        <td><%= link_to 'Destroy', blood_pressure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blood pressure', new_blood_pressure_path %>
